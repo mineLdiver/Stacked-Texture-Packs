@@ -1,18 +1,18 @@
 buildscript {
 	repositories {
-		mavenCentral()
-		jcenter()
 		maven {
 			name = "Fabric"
 			url = "https://maven.fabricmc.net/"
 		}
+		mavenCentral()
+		jcenter()
 		maven {
 			name = "Jitpack"
 			url 'https://jitpack.io/'
 		}
 	}
 	dependencies {
-		classpath 'com.github.Chocohead:Fabric-Loom:e3d1762'
+		classpath 'com.github.Chocohead:Fabric-Loom:361cd1c'
 	}
 }
 
@@ -49,6 +49,7 @@ repositories {
 }
 
 minecraft {
+	AT = file("src/main/resources/access-transformations.txt")
 }
 
 dependencies {
@@ -119,6 +120,8 @@ task javadocJar(type: Jar) {
 }
 
 tasks.publishToMavenLocal.dependsOn(tasks.remapJar)
+
+tasks.remapJar.convertAT(true)
 
 publishing {
 	repositories {

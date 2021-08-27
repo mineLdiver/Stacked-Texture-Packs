@@ -1,14 +1,16 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.glasslauncher.example.mixin",
+  "package": "net.mine_diver.stackedtexturepacks.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ExampleMixin"
   ],
   "server": [
   ],
   "client": [
+    "MixinTexturePacks",
+    "ScrollableBaseAccessor",
+    "ScreenBaseAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

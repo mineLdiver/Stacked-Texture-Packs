@@ -1,29 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "stackedtexturepacks",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Stacked Texture Packs",
+  "description": "This mod allows to stack texturepacks, like modern resourcepacks.",
   "authors": [
-    "Me!"
+    "mine_diver"
   ],
   "contact": {
     "homepage": "https://glass-launcher.net/",
-    "sources": "https://github.com/calmilamsy/BIN-fabric-example-mod"
+    "sources": "https://github.com/mineLdiver/Stacked-Texture-Packs",
+    "issues": "https://github.com/mineLdiver/Stacked-Texture-Packs/issues"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/stackedtexturepacks/icon.png",
 
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.glasslauncher.example.ExampleMod"
-    ]
-  },
+  "environment": "client",
   "mixins": [
-    "modid.mixins.json"
+    "stackedtexturepacks.mixins.json"
   ],
 
   "depends": {
