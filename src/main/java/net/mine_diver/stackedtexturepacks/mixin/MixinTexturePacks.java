@@ -1,6 +1,5 @@
 package net.mine_diver.stackedtexturepacks.mixin;
 
-import com.sun.org.apache.bcel.internal.generic.PUTFIELD;
 import net.mine_diver.stackedtexturepacks.gui.screen.menu.ActiveTexturePackList;
 import net.mine_diver.stackedtexturepacks.gui.screen.menu.AvailableTexturePackList;
 import net.minecraft.client.gui.screen.ScreenBase;
