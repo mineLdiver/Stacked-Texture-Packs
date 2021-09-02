@@ -5,7 +5,6 @@ buildscript {
 			url = "https://maven.fabricmc.net/"
 		}
 		mavenCentral()
-		jcenter()
 		maven {
 			name = "Jitpack"
 			url 'https://jitpack.io/'
@@ -49,25 +48,17 @@ repositories {
 }
 
 minecraft {
+	//Skip old versions of libraries which Mojang use but we don't need
+	addLibraryFilter {library ->
+		return !(library.startsWith('net.minecraft:launchwrapper:') ||
+					library.startsWith('net.sf.jopt-simple:jopt-simple:') ||
+					library.startsWith('org.ow2.asm:asm-all:'))
+	}
+
 	AT = file("src/main/resources/access-transformations.txt")
 }
 
 dependencies {
-	// fabric loader requires log4j, guava, and gson
-	implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8.1'
-	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8.1'
-	annotationProcessor group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8.1'
-	annotationProcessor group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8.1'
-	implementation 'com.google.guava:guava:28.0-jre'
-	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
-
-	// mixin and fabric loader need asm 9
-	implementation 'org.ow2.asm:asm:9.0'
-	implementation 'org.ow2.asm:asm-analysis:9.0'
-	implementation 'org.ow2.asm:asm-commons:9.0'
-	implementation 'org.ow2.asm:asm-tree:9.0'
-	implementation 'org.ow2.asm:asm-util:9.0'
-
 	// to change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
